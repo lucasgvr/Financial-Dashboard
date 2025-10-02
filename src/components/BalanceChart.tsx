@@ -1,5 +1,27 @@
-import { Chart as ChartJS } from "chart.js/auto";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    ArcElement,
+} from "chart.js";
 import { Line, Pie } from "react-chartjs-2";
+
+// Register the components you're using
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    ArcElement
+);
 
 export default function BalanceChart() {
     const lineData = {

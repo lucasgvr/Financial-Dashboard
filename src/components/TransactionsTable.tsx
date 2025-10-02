@@ -1,11 +1,26 @@
+import { useState } from "react";
+import AddTransactionModal from "./AddTransactionModal";
+
 export default function TransactionsTable() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+
     return (
         <div className="flex-1 bg-gray-50 p-6 rounded-lg">
             <div className="flex justify-between items-center mb-4">
                 <h1 className="text-2xl font-bold">Recent Activity</h1>
-                <button className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 cursor-pointer">
+                <button
+                    className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 cursor-pointer"
+                    onClick={openModal}
+                >
                     Add Transaction
                 </button>
+                <AddTransactionModal
+                    isOpen={isModalOpen}
+                    onClose={closeModal}
+                />
             </div>
             <table className="min-w-full mt-4 border border-gray-200">
                 <thead className="bg-gray-100">
